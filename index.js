@@ -8,6 +8,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/math', math)
+  .get('/postal', (req, res) => res.sendFile(path.join(__dirname + '/public/submission.html')))
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
