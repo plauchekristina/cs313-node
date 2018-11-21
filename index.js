@@ -15,34 +15,32 @@ express()
 
 
 function math(req, res) {
-  var operation = req.query.operation
   var leftparam = Number(req.query.leftparam)
-  var rightparam = Number(req.query.rightparam)
-  doMath(res, operation, leftparam, rightparam)
+  var rightparam = req.query.rightparam
+  doMath(res, leftparam, rightparam)
 }
 
-function doMath(res, operation, leftparam, rightparam) {
+function doMath(res, leftparam, rightparam) {
   var answer = 0;
-  switch (operation) {
-    case "+":
-      answer = leftparam + rightparam
+  switch (rightparam) {
+    case "stamped":
+      answer = (((leftparam * .21) - .21) + .50)
       break;
-    case "-":
-      answer = leftparam - rightparam
+    case "metered":
+      answer = (((leftparam * .21) - .21) + .47)
       break;
-    case "*":
-      answer = leftparam * rightparam;
+    case "flats":
+      answer = (((leftparam * .21) - .21) + 1)
       break;
-    case "/":
-      answer = leftparam / rightparam;
+    case "retail":
+      answer = (((leftparam * .25) - .25) + 3.50)
       break;
 
   }
   var equation = {
-    operation: operation,
     leftparam: leftparam,
     rightparam: rightparam,
-    answer: answer
+    answer: answer.toFixed
   }
   res.render('pages/result', equation);
 

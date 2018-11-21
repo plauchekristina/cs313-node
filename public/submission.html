@@ -2,19 +2,21 @@
 <html>
 
 <body>
-    <h1>Calculator</h1>
+    <h1>Postal Rate Calculator</h1>
     <form action="/math" method="get">
-        <input type="text" name="leftparam">
-        <select name="operation">
-            <option>+</option>
-            <option>-</option>
-            <option>*</option>
-            <option>/</option>
+        <h4>Weight
+            <input type="number" name="leftparam">
+        </h4>
+        <select name="rightparam">
+            <option value="stamped">Letters (stamped)</option>
+            <option value="metered">Letters (metered)</option>
+            <option value="flats">Large Envelopes (flats)</option>
+            <option value="retail"> First Class Package service (flats)</option>
         </select>
-        <input type="text" name="rightparam">
+        <!--  <input type=" text " name="rightparam "> -->
         <br />
         <br />
-        <input type="submit" value="Get Answer">
+        <input type="submit" value="Calculate">
     </form>
 </body>
 
