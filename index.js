@@ -40,7 +40,7 @@ function doMath(res, leftparam, rightparam) {
   var equation = {
     leftparam: leftparam,
     rightparam: rightparam,
-    answer: answer.toFixed
+    answer: answer.toFixed(2)
   }
   res.render('pages/result', equation);
 
