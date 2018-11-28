@@ -20,9 +20,9 @@ function getData(req, res) {
   /*  getDataFromDb(client_id, function (error, result) {
      //res.json(result);
    }); */
-  res.render('pages/db')
-  //var result = { number: 123, name: "mama" };
-  //res.json(result);
+
+  var result = { number: 123, name: "mama" };
+  res.json(result);
 
 }
 
