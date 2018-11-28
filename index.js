@@ -18,9 +18,9 @@ express()
 function getData(req, res) {
   console.log("Getting person information");
   var client_id = req.query.client_id;
-  getDataFromDb(client_id, function (error, result) {
-    //res.json(result);
-  });
+  /*  getDataFromDb(client_id, function (error, result) {
+     //res.json(result);
+   }); */
   var result = { client_id: 123, name: "mama" };
   res.json(result);
 }
