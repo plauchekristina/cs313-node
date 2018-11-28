@@ -26,8 +26,8 @@ function getData(req, res) {
 }
 
 function getDataFromDb(client_id, callback) {
-  var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE id = $1::int";
-  var pass = [id];
+  var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = $1::int";
+  var pass = [client_id];
   pool.query(sql, pass, function (error, result) {
     if (error) {
       res.write("An error occured with the database")
@@ -37,6 +37,10 @@ function getDataFromDb(client_id, callback) {
   });
 };
 
+
+
+
+////####### Postal Calculator
 function math(req, res) {
   var leftparam = Number(req.query.leftparam)
   var rightparam = req.query.rightparam
