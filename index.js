@@ -23,7 +23,7 @@ function getData(req, res) {
    }); */
   var result = { number: 123, name: "mama" };
   res.json(result);
-  res.write(client_id)
+  res.write("This is the client_id: " + client_id)
 }
 
 /* function getDataFromDb(client_id, callback) {
