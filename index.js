@@ -12,19 +12,19 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .get('/math', math)
   .get('/postal', (req, res) => res.sendFile(path.join(__dirname + '/public/submission.html')))
-  .get('/getData', getData
-    .listen(PORT, () => console.log(`Listening on ${PORT}`))
+  .get('/getData', getData)
+  .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 function getData(req, res) {
-    var client_id = req.query.client_id;
-    /*  getDataFromDb(client_id, function (error, result) {
-       //res.json(result);
-     }); */
-    res.render('pages/db')
-    //var result = { number: 123, name: "mama" };
-    //res.json(result);
+  var client_id = req.query.client_id;
+  /*  getDataFromDb(client_id, function (error, result) {
+     //res.json(result);
+   }); */
+  res.render('pages/db')
+  //var result = { number: 123, name: "mama" };
+  //res.json(result);
 
-  }
+}
 
 /* function getDataFromDb(client_id, callback) {
   var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = $1::int";
@@ -43,34 +43,34 @@ function getData(req, res) {
 
 ////####### Postal Calculator
 function math(req, res) {
-    var leftparam = Number(req.query.leftparam)
-    var rightparam = req.query.rightparam
-    doMath(res, leftparam, rightparam)
-  }
+  var leftparam = Number(req.query.leftparam)
+  var rightparam = req.query.rightparam
+  doMath(res, leftparam, rightparam)
+}
 
 function doMath(res, leftparam, rightparam) {
-    var answer = 0;
-    switch (rightparam) {
-      case "stamped":
-        answer = (((leftparam * .21) - .21) + .50)
-        break;
-      case "metered":
-        answer = (((leftparam * .21) - .21) + .47)
-        break;
-      case "flats":
-        answer = (((leftparam * .21) - .21) + 1)
-        break;
-      case "retail":
-        answer = (((leftparam * .25) - .25) + 3.50)
-        break;
+  var answer = 0;
+  switch (rightparam) {
+    case "stamped":
+      answer = (((leftparam * .21) - .21) + .50)
+      break;
+    case "metered":
+      answer = (((leftparam * .21) - .21) + .47)
+      break;
+    case "flats":
+      answer = (((leftparam * .21) - .21) + 1)
+      break;
+    case "retail":
+      answer = (((leftparam * .25) - .25) + 3.50)
+      break;
 
-    }
-    var equation = {
-      leftparam: leftparam,
-      rightparam: rightparam,
-      answer: answer.toFixed(2)
-    }
-    res.render('pages/result', equation);
+  }
+  var equation = {
+    leftparam: leftparam,
+    rightparam: rightparam,
+    answer: answer.toFixed(2)
+  }
+  res.render('pages/result', equation);
 
 
-  } 
+} 
