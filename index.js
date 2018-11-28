@@ -13,6 +13,8 @@ express()
   .get('/math', math)
   .get('/postal', (req, res) => res.sendFile(path.join(__dirname + '/public/submission.html')))
   .get('/getData', getData)
+  .get('/selectUser', (req, res) => sendFile(path.join(__dirname + 'public/user.html')))
+  .get('/userData', getUserData)
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 function getData(req, res) {
@@ -25,7 +27,11 @@ function getData(req, res) {
   res.json(result);
 
 }
-
+function getUserData(req, res) {
+  var client_id = req.query.client_id;
+  var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = " + client_id
+  res.render('pages/user_data', client_id);
+}
 /* function getDataFromDb(client_id, callback) {
   var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = $1::int";
   var pass = [client_id];
