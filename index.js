@@ -17,15 +17,15 @@ express()
 
 function getData(req, res) {
   console.log("Getting person information");
-  var client_id = req.quer.client_id;
+  var client_id = req.query.client_id;
   getDataFromDb(client_id, function (error, result) {
-    res.json(result);
+    //res.json(result);
   });
-  var result = { id: 123, name: "mama" };
-  //res.json(result);
+  var result = { client_id: 123, name: "mama" };
+  res.json(result);
 }
 
-function getDataFromDb(client_id, callback) {
+/* function getDataFromDb(client_id, callback) {
   var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = $1::int";
   var pass = [client_id];
   pool.query(sql, pass, function (error, result) {
@@ -36,7 +36,7 @@ function getDataFromDb(client_id, callback) {
     callback(null, result.rows);
   });
 };
-
+ */
 
 
 
