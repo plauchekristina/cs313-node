@@ -17,9 +17,25 @@ express()
 
 function getData(req, res) {
   console.log("Getting person information");
-  var result = { id: 123, name: "mama" };
-  res.json(result);
+  var client_id = req.quer.client_id;
+  getDataFromDb(client_id, function (error, result) {
+    res.json(result);
+  });
+  //var result = { id: 123, name: "mama" };
+  //res.json(result);
 }
+
+function getDataFromDb(client_id, callback) {
+  var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE id = $1::int";
+  var pass = [id];
+  pool.query(sql, pass, function (error, result) {
+    if (error) {
+      res.write("An error occured with the database")
+    }
+    res.write("Found Database result: " + JSON.stringify(result.rows));
+    callback(null, result.rows);
+  });
+};
 
 function math(req, res) {
   var leftparam = Number(req.query.leftparam)
