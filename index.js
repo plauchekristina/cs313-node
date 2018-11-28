@@ -21,8 +21,9 @@ function getData(req, res) {
   /*  getDataFromDb(client_id, function (error, result) {
      //res.json(result);
    }); */
-  var result = { client_id: 123, name: "mama" };
+  var result = { number: 123, name: "mama" };
   res.json(result);
+  res.write(client_id)
 }
 
 /* function getDataFromDb(client_id, callback) {
