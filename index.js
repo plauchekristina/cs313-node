@@ -20,7 +20,8 @@ express()
 function getData(req, res) {
   var client_id = req.query.client_id;
   getDataFromDb(client_id, function (error, result) {
-    res.json(result);
+    //res.json(result);
+    res.render('pages/user_data', { result: result });
   });
 
   //var result = { number: client_id, name: "mama" };
