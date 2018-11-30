@@ -19,12 +19,12 @@ express()
 
 function getData(req, res) {
   var client_id = req.query.client_id;
-  /*  getDataFromDb(client_id, function (error, result) {
-     //res.json(result);
-   }); */
+  getDataFromDb(client_id, function (error, result) {
+    res.json(result);
+  });
 
-  var result = { number: client_id, name: "mama" };
-  res.json(result);
+  //var result = { number: client_id, name: "mama" };
+  //res.json(result);
 
 }
 function getUserData(req, res) {
@@ -32,18 +32,18 @@ function getUserData(req, res) {
   var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = " + client_id
   res.render('pages/user_data', client_id);
 }
-/* function getDataFromDb(client_id, callback) {
+function getDataFromDb(client_id, callback) {
   var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = $1::int";
   var pass = [client_id];
   pool.query(sql, pass, function (error, result) {
     if (error) {
-      res.write("An error occured with the database")
+      //res.write("An error occured with the database")
     }
-    res.write("Found Database result: " + JSON.stringify(result.rows));
+    //res.write("Found Database result: " + JSON.stringify(result.rows));
     callback(null, result.rows);
   });
 };
- */
+
 
 
 
