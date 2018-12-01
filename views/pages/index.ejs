@@ -18,7 +18,7 @@
     <div class="container">
       <h2>Week 9 Postal Calculator Project</h2>
       <a href="/postal">Postal Rate Calculator</a>
-      <h2>Week 10 project part 1</h2>
+      <h2>Week 10 project</h2>
       <a href="/getData?client_id=1">getData</a>
 
       <!-- Report form -->
@@ -41,19 +41,9 @@
           <div class="workers">
             <h3>Workers</h3>
             <table>
-              <th>
-                <td>
-                  Category
-                </td>
-                <td>
-                  #
-                </td>
-                <td>
-                  Work Done
-                </td>
-              </th>
               <tr>
                 <td>
+                  <label>Category</label>
                   <select id="worker-category[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
@@ -69,9 +59,11 @@
                   </select>
                 </td>
                 <td>
+                  <label># of Workers on site</label>
                   <input type="number" min=0 id="worker-number">
                 </td>
                 <td>
+                  <label>Work Done</label>
                   <input type="textarea">
                 </td>
               </tr>
