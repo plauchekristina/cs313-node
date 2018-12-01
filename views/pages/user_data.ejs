@@ -2,15 +2,20 @@
 <html>
 
 <head>
-    <title>Postal Rate</title>
+    <title>Client Info</title>
 </head>
 
 <body>
     <h1>Client</h1>
     <p>
         The client id is:
-        <%= result[0].client_id + " " + result[0].client_fname %>.
+        <%= result[0].client_id + " " + result[0].client_fname + " " + result[0].client_lname %>.
     </p>
+    <p>
+        Email:
+        <%= result[0].client_email %>
+    </p>
+
 </body>
 
 </html>

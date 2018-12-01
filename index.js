@@ -17,6 +17,9 @@ express()
   .get('/userData', getUserData)
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
+
+////##### User Data ####/////
+
 function getData(req, res) {
   var client_id = req.query.client_id;
   getDataFromDb(client_id, function (error, result) {
