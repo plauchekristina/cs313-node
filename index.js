@@ -29,82 +29,83 @@ function putData(req, res) {
     //res.json(result);
     res.render('pages/user_data', { result: result });
   });
+}
+function putDataInDb(client_id, callback) {
+  var sql = "INSERT client_fname, client_lname, client_email INTO client WHERE client_id = $1::int";
+  var pass = [client_id];
+  pool.query(sql, pass, function (error, result) {
+    if (error) {
+      //res.write("An error occured with the database")
+    }
+    //res.write("Found Database result: " + JSON.stringify(result.rows));
+    callback(null, result.rows);
+  });
+};
 
-  function putDataInDb(client_id, callback) {
-    var sql = "INSERT client_fname, client_lname, client_email INTO client WHERE client_id = $1::int";
-    var pass = [client_id];
-    pool.query(sql, pass, function (error, result) {
-      if (error) {
-        //res.write("An error occured with the database")
-      }
-      //res.write("Found Database result: " + JSON.stringify(result.rows));
-      callback(null, result.rows);
-    });
-  };
 
+////##### Display User Data ####/////
 
-  ////##### Display User Data ####/////
-
-  function getData(req, res) {
-    var client_id = req.query.client_id;
-    getDataFromDb(client_id, function (error, result) {
-      //res.json(result);
-      res.render('pages/user_data', { result: result });
-    });
-
-    //var result = { number: client_id, name: "mama" };
+function getData(req, res) {
+  var client_id = req.query.client_id;
+  getDataFromDb(client_id, function (error, result) {
     //res.json(result);
+    res.render('pages/user_data', { result: result });
+  });
 
-  }
-  function getUserData(req, res) {
-    var client_id = req.query.client_id;
-    var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = " + client_id
-    res.render('pages/user_data', client_id);
-  }
-  function getDataFromDb(client_id, callback) {
-    var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = $1::int";
-    var pass = [client_id];
-    pool.query(sql, pass, function (error, result) {
-      if (error) {
-        //res.write("An error occured with the database")
-      }
-      //res.write("Found Database result: " + JSON.stringify(result.rows));
-      callback(null, result.rows);
-    });
-  };
+  //var result = { number: client_id, name: "mama" };
+  //res.json(result);
 
-
-
-
-
-
-  ////####### Postal Calculator
-  function math(req, res) {
-    var leftparam = Number(req.query.leftparam)
-    var rightparam = req.query.rightparam
-    doMath(res, leftparam, rightparam)
-  }
-
-  function doMath(res, leftparam, rightparam) {
-    var answer = 0;
-    switch (rightparam) {
-      case "stamped":
-        answer = (((leftparam * .21) - .21) + .50)
-        break;
-      case "metered":
-        answer = (((leftparam * .21) - .21) + .47)
-        break;
-      case "flats":
-        answer = (((leftparam * .21) - .21) + 1)
-        break;
-      case "retail":
-        answer = (((leftparam * .25) - .25) + 3.50)
-        break;
-
+}
+function getUserData(req, res) {
+  var client_id = req.query.client_id;
+  var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = " + client_id
+  res.render('pages/user_data', client_id);
+}
+function getDataFromDb(client_id, callback) {
+  var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = $1::int";
+  var pass = [client_id];
+  pool.query(sql, pass, function (error, result) {
+    if (error) {
+      //res.write("An error occured with the database")
     }
-    var equation = {
-      leftparam: leftparam,
-      rightparam: rightparam,
-      answer: answer.toFixed(2)
-    }
-    res.render('pages/result', equation);
+    //res.write("Found Database result: " + JSON.stringify(result.rows));
+    callback(null, result.rows);
+  });
+};
+
+
+
+
+
+
+////####### Postal Calculator
+function math(req, res) {
+  var leftparam = Number(req.query.leftparam)
+  var rightparam = req.query.rightparam
+  doMath(res, leftparam, rightparam)
+}
+
+function doMath(res, leftparam, rightparam) {
+  var answer = 0;
+  switch (rightparam) {
+    case "stamped":
+      answer = (((leftparam * .21) - .21) + .50)
+      break;
+    case "metered":
+      answer = (((leftparam * .21) - .21) + .47)
+      break;
+    case "flats":
+      answer = (((leftparam * .21) - .21) + 1)
+      break;
+    case "retail":
+      answer = (((leftparam * .25) - .25) + 3.50)
+      break;
+
+  }
+  var equation = {
+    leftparam: leftparam,
+    rightparam: rightparam,
+    answer: answer.toFixed(2)
+  }
+  res.render('pages/result', equation);
+}
