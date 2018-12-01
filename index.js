@@ -108,6 +108,3 @@ function putData(req, res) {
       answer: answer.toFixed(2)
     }
     res.render('pages/result', equation);
-
-
-  } 
