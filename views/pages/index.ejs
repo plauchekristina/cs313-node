@@ -15,190 +15,188 @@
           <img src="/lang-logo.png">
         </a>
         <h1>Getting Started with Node on Heroku</h1> -->
-    <main>
-      <div class="container">
-        <h2>Week 9 Postal Calculator Project</h2>
-        <a href="/postal">Postal Rate Calculator</a>
-        <h2>Week 10 project</h2>
-        <a href="/getData?client_id=1">getData</a>
-      </div>
-      <hr/>
 
-      <!-- Report form -->
+    <div class="container">
+      <h2>Week 9 Postal Calculator Project</h2>
+      <a href="/postal">Postal Rate Calculator</a>
+      <h2>Week 10 project</h2>
+      <a href="/getData?client_id=1">getData</a>
+    </div>
+    <hr/>
 
-      <div>
-        <h1>Daily Report</h1>
-        <form action="sendReport">
-          <label>Report Date</label>
-          <input type="date">
-          <label>Job Site Address</label>
-          <input type="text" id="address">
+    <!-- Report form -->
 
-          <h3>Weather</h3>
-          <label>High</label>
-          <input type="number" id="high" required>
-          <label>Low</label>
-          <input type="number" id="low" required>
-          <label>Conditions</label>
-          <input type="textarea" id="conditions" required>
-          <label>Rental Equipment On Site</label>
-          <input type="textarea" id="equipment" required>
-          <div class="workers">
-            <h3>Workers</h3>
-            <table>
-              <tr>
-                <td>
+    <div>
+      <h1>Daily Report</h1>
+      <form action="sendReport">
+        <label>Report Date</label>
+        <input type="date">
+        <label>Job Site Address</label>
+        <input type="text" id="address">
 
-                  <div>
-                    <label>Category</label>
-                  </div>
-                  <select id="worker-category[]">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Plumber">Plumber
-                    </option>
-                    <option value="Electrician">Electrician
-                    </option>
-                    <option value="Framing">Framing
-                    </option>
-                    <option value="HVAC">HVAC
-                    </option>
-                    <option value="Grading">Grading
-                    </option>
-                  </select>
-                </td>
-                <td>
-                  <div>
-                    <label># of Workers on site</label>
-                  </div>
-                  <input type="number" min=0 id="worker-number">
-                </td>
-                <td>
-                  <div>
-                    <label>Work Done</label>
-                  </div>
-                  <input type="textarea">
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <select id="worker-category[]">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Plumber">Plumber
-                    </option>
-                    <option value="Electrician">Electrician
-                    </option>
-                    <option value="Framing">Framing
-                    </option>
-                    <option value="HVAC">HVAC
-                    </option>
-                    <option value="Grading">Grading
-                    </option>
-                  </select>
-                </td>
-                <td>
-                  <input type="number" min=0 id="worker-number">
-                </td>
-                <td>
-                  <input type="textarea">
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <select id="worker-category[]">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Plumber">Plumber
-                    </option>
-                    <option value="Electrician">Electrician
-                    </option>
-                    <option value="Framing">Framing
-                    </option>
-                    <option value="HVAC">HVAC
-                    </option>
-                    <option value="Grading">Grading
-                    </option>
-                  </select>
-                </td>
-                <td>
-                  <input type="number" min=0 id="worker-number">
-                </td>
-                <td>
-                  <input type="textarea">
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <select id="worker-category[]">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Plumber">Plumber
-                    </option>
-                    <option value="Electrician">Electrician
-                    </option>
-                    <option value="Framing">Framing
-                    </option>
-                    <option value="HVAC">HVAC
-                    </option>
-                    <option value="Grading">Grading
-                    </option>
-                  </select>
-                </td>
-                <td>
-                  <input type="number" min=0 id="worker-number">
-                </td>
-                <td>
-                  <input type="textarea">
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <select id="worker-category[]">
-                    <option value="">--Please choose an option--</option>
-                    <option value="Plumber">Plumber
-                    </option>
-                    <option value="Electrician">Electrician
-                    </option>
-                    <option value="Framing">Framing
-                    </option>
-                    <option value="HVAC">HVAC
-                    </option>
-                    <option value="Grading">Grading
-                    </option>
-                  </select>
-                </td>
-                <td>
-                  <input type="number" min=0 id="worker-number">
-                </td>
-                <td>
-                  <input type="textarea">
-                </td>
-              </tr>
-            </table>
+        <h3>Weather</h3>
+        <label>High</label>
+        <input type="number" id="high" required>
+        <label>Low</label>
+        <input type="number" id="low" required>
+        <label>Conditions</label>
+        <input type="textarea" id="conditions" required>
+        <label>Rental Equipment On Site</label>
+        <input type="textarea" id="equipment" required>
+        <div class="workers">
+          <h3>Workers</h3>
+          <table>
+            <tr>
+              <td>
 
-
-          </div>
-
-          <h3>Report</h3>
-          <label>What Happened Today?</label>
-          <input type="textarea" cols="50" rows="4" id="report-content">
-          <label>Image Url</label>
-          <input type="text" id="image-file">
+                <div>
+                  <label>Category</label>
+                </div>
+                <select id="worker-category[]">
+                  <option value="">--Please choose an option--</option>
+                  <option value="Plumber">Plumber
+                  </option>
+                  <option value="Electrician">Electrician
+                  </option>
+                  <option value="Framing">Framing
+                  </option>
+                  <option value="HVAC">HVAC
+                  </option>
+                  <option value="Grading">Grading
+                  </option>
+                </select>
+              </td>
+              <td>
+                <div>
+                  <label># of Workers on site</label>
+                </div>
+                <input type="number" min=0 id="worker-number">
+              </td>
+              <td>
+                <div>
+                  <label>Work Done</label>
+                </div>
+                <input type="textarea">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select id="worker-category[]">
+                  <option value="">--Please choose an option--</option>
+                  <option value="Plumber">Plumber
+                  </option>
+                  <option value="Electrician">Electrician
+                  </option>
+                  <option value="Framing">Framing
+                  </option>
+                  <option value="HVAC">HVAC
+                  </option>
+                  <option value="Grading">Grading
+                  </option>
+                </select>
+              </td>
+              <td>
+                <input type="number" min=0 id="worker-number">
+              </td>
+              <td>
+                <input type="textarea">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select id="worker-category[]">
+                  <option value="">--Please choose an option--</option>
+                  <option value="Plumber">Plumber
+                  </option>
+                  <option value="Electrician">Electrician
+                  </option>
+                  <option value="Framing">Framing
+                  </option>
+                  <option value="HVAC">HVAC
+                  </option>
+                  <option value="Grading">Grading
+                  </option>
+                </select>
+              </td>
+              <td>
+                <input type="number" min=0 id="worker-number">
+              </td>
+              <td>
+                <input type="textarea">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select id="worker-category[]">
+                  <option value="">--Please choose an option--</option>
+                  <option value="Plumber">Plumber
+                  </option>
+                  <option value="Electrician">Electrician
+                  </option>
+                  <option value="Framing">Framing
+                  </option>
+                  <option value="HVAC">HVAC
+                  </option>
+                  <option value="Grading">Grading
+                  </option>
+                </select>
+              </td>
+              <td>
+                <input type="number" min=0 id="worker-number">
+              </td>
+              <td>
+                <input type="textarea">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select id="worker-category[]">
+                  <option value="">--Please choose an option--</option>
+                  <option value="Plumber">Plumber
+                  </option>
+                  <option value="Electrician">Electrician
+                  </option>
+                  <option value="Framing">Framing
+                  </option>
+                  <option value="HVAC">HVAC
+                  </option>
+                  <option value="Grading">Grading
+                  </option>
+                </select>
+              </td>
+              <td>
+                <input type="number" min=0 id="worker-number">
+              </td>
+              <td>
+                <input type="textarea">
+              </td>
+            </tr>
+          </table>
 
 
-          <h3>Unresolved Issues</h3>
-          <!--Unresolved issues will go here -->
-          <h4>New Issue</h4>
-          <input type="text" id="issue[]">
-          <button onclick=""> Add Another Issue</button>
+        </div>
+
+        <h3>Report</h3>
+        <label>What Happened Today?</label>
+        <input type="textarea" cols="50" rows="4" id="report-content">
+        <label>Image Url</label>
+        <input type="text" id="image-file">
 
 
-          <input type="submit" value="Submit">
-        </form>
+        <h3>Unresolved Issues</h3>
+        <!--Unresolved issues will go here -->
+        <h4>New Issue</h4>
+        <input type="text" id="issue[]">
+        <button onclick=""> Add Another Issue</button>
 
-      </div>
-      </div>
-    </main>
-    <footer>
-      &copy; 2018
-    </footer>
+
+        <input type="submit" value="Submit">
+      </form>
+
+    </div>
+    </div>
+
+    <div></div>>
     <!--  <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding
           how to get the most out of the Heroku platform.</p>
         <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">
