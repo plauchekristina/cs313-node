@@ -10,16 +10,19 @@
         <% include ../partials/nav.ejs %>
 
             <body>
-                <h1>Client</h1>
-                <p>
-                    The client id is:
-                    <%= result[0].client_id + " " + result[0].client_fname + " " + result[0].client_lname %>.
-                </p>
-                <p>
-                    Email:
-                    <%= result[0].client_email %>
-                </p>
+                <div class="container">
 
+                    <h1>Client</h1>
+                    <p>
+                        The client id is:
+                        <%= result[0].client_id + " " + result[0].client_fname + " " + result[0].client_lname %>.
+                    </p>
+                    <p>
+                        Email:
+                        <%= result[0].client_email %>
+                    </p>
+
+                </div>
             </body>
 
             </html>
