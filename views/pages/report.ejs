@@ -1,28 +1,43 @@
-!DOCTYPE html>
-<<html>
+<html>
 
-    <head>
-        <% include ../partials/header.ejs %>
-    </head>
+<head>
+    <% include ../partials/header.ejs %>
+</head>
 
-    <body>
+<body>
 
-        <% include ../partials/nav.ejs %>
+    <% include ../partials/nav.ejs %>
 
-            <body>
-                <div class="container">
+        <body>
+            <div class="container">
 
-                    <h1>Display Report</h1>
-                    <p>
-                        The Report id is:
-                        <%= result[0].report_id + "Today's High was: " + result[0].report_weather_high + "degrees & " + result[0].report_weather_conditions %>.
-                    </p>
-                    <p>
-                        Report Notes:
-                        <%= result[0].report_content %>
-                    </p>
+                <h1>Report #
+                    <%= result[0].report_id %>
+                </h1>
+                <h2>Weather</h2>
+                <p>
+                    <strong>High:</strong>
+                    <%= result[0].report_weather_high + "degrees & "%>.
+                </p>
+                <p>
+                    <strong>Low:</strong>
+                    <%= result[0].report_weather_low + " degrees"%>
+                </p>
+                <p>
+                    <strong>Conditions:</strong>
+                    <%=result[0].report_weather_conditions %>.</p>
 
-                </div>
-            </body>
+                <h2>Rental Equipment On Site</h2>
+                <p>
+                    <%= result[0].report_rental_equipment %>
+                </p>
 
-            </html>
+                <h2>Report Notes:</h2>
+                <p>
+                    <%= result[0].report_content %>
+                </p>
+
+            </div>
+        </body>
+
+</html>
