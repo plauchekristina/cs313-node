@@ -32,9 +32,9 @@ function displayReport(req, res) {
 ////##### Display User Data ####/////
 
 function getData(req, res) {
-  var user_client_id = req.query.user_client_id;
+  var client_id = req.query.client_id;
   getDataFromDb(client_id, function (error, result) {
-    res.render('pages/report', { result: result });
+    res.render('pages/user_data', { result: result });
   });
 
 
