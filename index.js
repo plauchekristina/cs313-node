@@ -17,43 +17,26 @@ express()
   .get('/getData', getData)
   .get('/selectUser', (req, res) => sendFile(path.join(__dirname + 'public/user.html')))
   .get('/userData', getUserData)
-  .post('/newUser', putData)
+  .get('/sendReport', displayReport)
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
-////### put data in the database #### 
-
-function putData(req, res) {
-  var client_id = req.query.client_id;
-  putDataInDb(client_id, function (error, result) {
-    //res.json(result);
-    res.render('pages/user_data', { result: result });
-  });
+///#### Display Report ####/////
+function displayReport(req, res) {
+  var report_client_id = req.query.report_client_id;
+  var sql = "SELECT report_client_id, report_date , report_weather_high , report_weather_low, report_weather_conditions , report_weather_delay, report_rental_equip , report_content FROM report WHERE report_client_id =" + report_client_id
+  res.render('pages/report', { report_client_id: });
 }
-function putDataInDb(client_id, callback) {
-  var sql = "INSERT client_fname, client_lname, client_email INTO client WHERE client_id = $1::int";
-  var pass = [client_id];
-  pool.query(sql, pass, function (error, result) {
-    if (error) {
-      //res.write("An error occured with the database")
-    }
-    //res.write("Found Database result: " + JSON.stringify(result.rows));
-    callback(null, result.rows);
-  });
-};
 
 
 ////##### Display User Data ####/////
 
 function getData(req, res) {
-  var client_id = req.query.client_id;
+  var user_client_id = req.query.user_client_id;
   getDataFromDb(client_id, function (error, result) {
-    //res.json(result);
-    res.render('pages/user_data', { result: result });
+    res.render('pages/report', { result: result });
   });
 
-  //var result = { number: client_id, name: "mama" };
-  //res.json(result);
 
 }
 function getUserData(req, res) {
@@ -109,3 +92,23 @@ function doMath(res, leftparam, rightparam) {
   }
   res.render('pages/result', equation);
 }
+////### put data in the database #### 
+
+/* function putData(req, res) {
+  var client_id = req.query.client_id;
+  putDataInDb(client_id, function (error, result) {
+    //res.json(result);
+    res.render('pages/user_data', { result: result });
+  });
+}
+function putDataInDb(client_id, callback) {
+  var sql = "INSERT client_fname, client_lname, client_email INTO client WHERE client_id = $1::int";
+  var pass = [client_id];
+  pool.query(sql, pass, function (error, result) {
+    if (error) {
+      //res.write("An error occured with the database")
+    }
+    //res.write("Found Database result: " + JSON.stringify(result.rows));
+    callback(null, result.rows);
+  });
+}; */

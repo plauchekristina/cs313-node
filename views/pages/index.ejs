@@ -29,21 +29,22 @@
 
       <div>
         <h1>Daily Report</h1>
-        <form action="sendReport">
+        <a href="/sendReport?report_id=1">View Report</a>
+        <form action="/sendReport" method="get">
           <label>Report Date</label>
           <input type="date">
           <label>Job Site Address</label>
-          <input type="text" id="address">
+          <input type="text" name="address">
 
           <h3>Weather</h3>
           <label>High</label>
-          <input type="number" id="high" required>
+          <input type="number" name="high" required>
           <label>Low</label>
-          <input type="number" id="low" required>
+          <input type="number" name="low" required>
           <label>Conditions</label>
-          <input type="textarea" id="conditions" required>
+          <input type="textarea" name="conditions" required>
           <label>Rental Equipment On Site</label>
-          <input type="textarea" id="equipment" required>
+          <input type="textarea" name="equipment" required>
           <div class="workers">
             <h3>Workers</h3>
             <table>
@@ -53,7 +54,7 @@
                   <div>
                     <label>Category</label>
                   </div>
-                  <select id="worker-category[]">
+                  <select name="worker-category[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -71,7 +72,7 @@
                   <div>
                     <label># of Workers on site</label>
                   </div>
-                  <input type="number" min=0 id="worker-number">
+                  <input type="number" min=0 name="worker-number">
                 </td>
                 <td>
                   <div>
@@ -82,7 +83,7 @@
               </tr>
               <tr>
                 <td>
-                  <select id="worker-category[]">
+                  <select name="worker-category[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -97,7 +98,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" min=0 id="worker-number">
+                  <input type="number" min=0 name="worker-number">
                 </td>
                 <td>
                   <input type="textarea">
@@ -105,7 +106,7 @@
               </tr>
               <tr>
                 <td>
-                  <select id="worker-category[]">
+                  <select name="worker-category[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -120,7 +121,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" min=0 id="worker-number">
+                  <input type="number" min=0 name="worker-number">
                 </td>
                 <td>
                   <input type="textarea">
@@ -128,7 +129,7 @@
               </tr>
               <tr>
                 <td>
-                  <select id="worker-category[]">
+                  <select name="worker-category[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -143,7 +144,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" min=0 id="worker-number">
+                  <input type="number" min=0 name="worker-number">
                 </td>
                 <td>
                   <input type="textarea">
@@ -151,7 +152,7 @@
               </tr>
               <tr>
                 <td>
-                  <select id="worker-category[]">
+                  <select name="worker-category[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -166,7 +167,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" min=0 id="worker-number">
+                  <input type="number" min=0 name="worker-number">
                 </td>
                 <td>
                   <input type="textarea">
@@ -179,15 +180,15 @@
 
           <h3>Report</h3>
           <label>What Happened Today?</label>
-          <input type="textarea" cols="50" rows="4" id="report-content">
+          <input type="textarea" cols="50" rows="4" name="reportContent">
           <label>Image Url</label>
-          <input type="text" id="image-file">
+          <input type="text" name="image-file">
 
 
           <h3>Unresolved Issues</h3>
           <!--Unresolved issues will go here -->
           <h4>New Issue</h4>
-          <input type="text" id="issue[]">
+          <input type="text" name="issue[]">
           <button onclick=""> Add Another Issue</button>
 
 
@@ -198,79 +199,7 @@
 
     </div>
 
-    <!--  <p>This is a sample Node application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding
-          how to get the most out of the Heroku platform.</p>
-        <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">
-          <span class="glyphicon glyphicon-flash"></span> Getting Started with Node</a>
-        <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/node-js-getting-started">
-          <span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-      </div>
-    </div>
-    <div class="container">
-      <div class="alert alert-info text-center" role="alert">
-        To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the
-        <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" class="alert-link">Getting Started with Node on Heroku</a> tutorial.
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-md-6">
-          <h3>
-            <span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-          <ul>
-            <li>This app was deployed to Heroku, either using Git or by using
-              <a href="https://github.com/heroku/node-js-getting-started">Heroku Button</a> on the repository.</li>
 
-            <li>When Heroku received the source code, it fetched all the dependencies in the
-              <a href="https://github.com/heroku/node-js-getting-started/blob/master/package.json">package.json</a>, creating a deployable slug.</li>
-            <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the
-              slug can be mounted and executed.</li>
-            <li>You can scale your app, manage it, and deploy over
-              <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <h3>
-            <span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-          <ul>
-            <li>If you are following the
-              <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-            <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-            <ul>
-              <li>
-                <code>git clone https://github.com/heroku/node-js-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-              <li>
-                <code>cd node-js-getting-started</code> - change directory into the local source code repository</li>
-              <li>
-                <code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-              <li>You'll now be set up to run the app locally, or
-                <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#push-local-changes">deploy changes</a> to Heroku</li>
-            </ul>
-          </ul>
-          <h3>
-            <span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-          <ul>
-            <li>
-              <a href="https://www.heroku.com/home">Heroku</a>
-            </li>
-            <li>
-              <a href="https://devcenter.heroku.com/">Heroku Dev Center</a>
-            </li>
-            <li>
-              <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a>
-            </li>
-            <li>
-              <a href="https://devcenter.heroku.com/articles/deploying-nodejs">Deploying Node Apps on Heroku</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <! row -->
-    <!--    <div class="alert alert-info text-center" role="alert">
-        Please do work through the Getting Started guide, even if you do know how to build such an application. The guide covers
-        the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and
-        deploy your own apps.
-      </div>
-    </div> -->
 
 
 </body>
