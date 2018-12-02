@@ -17,17 +17,32 @@ express()
   .get('/getData', getData)
   .get('/selectUser', (req, res) => sendFile(path.join(__dirname + 'public/user.html')))
   .get('/userData', getUserData)
-  .get('/sendReport', displayReport)
+  .get('/sendReport', getReport)
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 ///#### Display Report ####/////
-function displayReport(req, res) {
-  var report_client_id = req.query.report_client_id;
-  var sql = "SELECT report_client_id, report_date , report_weather_high , report_weather_low, report_weather_conditions , report_weather_delay, report_rental_equip , report_content FROM report WHERE report_client_id =" + report_client_id
-  res.render('pages/report', { report_client_id: report_client_id });
+function getReport(req, res) {
+  var report_id = req.query.report_id;
+  getReportDataFromDb(report_id, function (error, result) {
+    res.render('pages/report', { result: result });
+  });
 }
+function getReportFromDb(report_id, callback) {
+  var sql = "SELECT report_id, report_date , report_weather_high , report_weather_low, report_weather_conditions , report_weather_delay, report_rental_equip , report_content FROM report WHERE report_id =$1::int"
+  var pass = [report_id];
+  pool.query(sql, pass, function (error, result) {
+    if (error) { } callback(null, result.rows);
+  });
+};
 
+///is this anything????? 
+/* function getReportData(req, res) {
+  var report_id = req.query.report_id;
+  var sql = "SELECT report_id, report_date , report_weather_high , report_weather_low, report_weather_conditions , report_weather_delay, report_rental_equip , report_content FROM report WHERE report_id =" + report_id
+  res.render('pages/report', report_id);
+} */
+////?????^^^^^
 
 ////##### Display User Data ####/////
 
@@ -39,11 +54,13 @@ function getData(req, res) {
 
 
 }
+///this function is out of place. It renders data in another place ////
 function getUserData(req, res) {
   var client_id = req.query.client_id;
   var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = " + client_id
   res.render('pages/user_data', client_id);
 }
+///// ^^^^^^ out of place //////////
 function getDataFromDb(client_id, callback) {
   var sql = "SELECT client_id, client_fname, client_lname, client_email FROM client WHERE client_id = $1::int";
   var pass = [client_id];
@@ -51,7 +68,6 @@ function getDataFromDb(client_id, callback) {
     if (error) {
       //res.write("An error occured with the database")
     }
-    //res.write("Found Database result: " + JSON.stringify(result.rows));
     callback(null, result.rows);
   });
 };
