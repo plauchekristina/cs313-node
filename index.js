@@ -25,7 +25,7 @@ express()
 function displayReport(req, res) {
   var report_client_id = req.query.report_client_id;
   var sql = "SELECT report_client_id, report_date , report_weather_high , report_weather_low, report_weather_conditions , report_weather_delay, report_rental_equip , report_content FROM report WHERE report_client_id =" + report_client_id
-  res.render('pages/report', { report_client_id: });
+  res.render('pages/report', { report_client_id: report_client_id });
 }
 
 
