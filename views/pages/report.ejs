@@ -15,10 +15,10 @@
                     <h1>Display Report</h1>
                     <p>
                         The Report id is:
-                        <%= result[0].report_id + " " + result[0].report_date + " " + result[0].report_weather_conditions %>.
+                        <%= result[0].report_id + "Today's High was: " + result[0].report_weather_high + "degrees & " + result[0].report_weather_conditions %>.
                     </p>
                     <p>
-                        Email:
+                        Report Notes:
                         <%= result[0].report_content %>
                     </p>
 
