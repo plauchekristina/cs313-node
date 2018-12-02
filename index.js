@@ -24,7 +24,7 @@ express()
 ///#### Display Report ####/////
 function getReport(req, res) {
   var report_id = req.query.report_id;
-  getReportDataFromDb(report_id, function (error, result) {
+  getReportFromDb(report_id, function (error, result) {
     res.render('pages/report', { result: result });
   });
 }
