@@ -9,12 +9,7 @@
 
   <% include ../partials/nav.ejs %>
 
-    <!-- <div class="jumbotron text-center">
-      <div class="container">
-        <a href="/" class="lang-logo">O
-          <img src="/lang-logo.png">
-        </a>
-        <h1>Getting Started with Node on Heroku</h1> -->
+
 
     <div class="container">
       <div>
@@ -30,11 +25,11 @@
       <div>
         <h1>Daily Report</h1>
         <h4>
-          <a href="/sendReport?report_id=1">Click to View Report</a>
+          <a href="/submitReport?report_id=1">Click to View Report</a>
         </h4>
         <form action="/sendReport" method="get">
           <label>Report Date</label>
-          <input type="date">
+          <input type="date" name="name">
           <label>Job Site Address</label>
           <input type="text" name="address">
 
@@ -85,7 +80,7 @@
               </tr>
               <tr>
                 <td>
-                  <select name="worker-category[]">
+                  <select name="wcategory[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -100,7 +95,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" min=0 name="worker-number">
+                  <input type="number" min=0 name="wnumber">
                 </td>
                 <td>
                   <input type="textarea">
@@ -108,7 +103,7 @@
               </tr>
               <tr>
                 <td>
-                  <select name="worker-category[]">
+                  <select name="wcategory[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -123,15 +118,15 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" min=0 name="worker-number">
+                  <input type="number" min=0 name="wnumber[]">
                 </td>
                 <td>
-                  <input type="textarea">
+                  <input type="textarea" name="wcontent[]">
                 </td>
               </tr>
               <tr>
                 <td>
-                  <select name="worker-category[]">
+                  <select name="wcategory[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -146,15 +141,15 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" min=0 name="worker-number">
+                  <input type="number" min=0 name="wnumber[]">
                 </td>
                 <td>
-                  <input type="textarea">
+                  <input type="textarea" name="wcontent[]">
                 </td>
               </tr>
               <tr>
                 <td>
-                  <select name="worker-category[]">
+                  <select name="wcategory[]">
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -169,10 +164,10 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" min=0 name="worker-number">
+                  <input type="number" min=0 name="wnumber[]">
                 </td>
                 <td>
-                  <input type="textarea">
+                  <input type="textarea" name="wcontent[]">
                 </td>
               </tr>
             </table>
@@ -184,7 +179,7 @@
           <label>What Happened Today?</label>
           <input type="textarea" cols="50" rows="4" name="reportContent">
           <label>Image Url</label>
-          <input type="text" name="image-file">
+          <input type="text" name="imageFile">
 
 
           <h3>Unresolved Issues</h3>

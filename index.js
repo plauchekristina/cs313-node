@@ -17,9 +17,38 @@ express()
   .get('/getData', getData)
   .get('/selectUser', (req, res) => sendFile(path.join(__dirname + 'public/user.html')))
   .get('/userData', getUserData)
-  .get('/sendReport', getReport)
+  .get('/submitReport', getReport)
+  .get('/sendReport', sendReport)
+
+
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
+
+
+/////### Send Report to Database ### //////
+
+function sendReport(req, res) {
+  var high = req.query.high
+  var low = req.query.low
+  var name = req.query.name
+  var date = req.query.date
+  var conditions = req.query.conditions
+  var equipment = req.query.equipment
+  var workerCategory = req.query.wcategory
+  var workerNumber = req.query.wnumber
+  var workerContent = req.query.wcontent
+  var reportContent = req.query.reportContent
+  var imageFile = req.query.imageFile
+  var issue = req.query.issue
+
+  var sql = "INSERT INTO report (report_name, report_date, report_weather_high, report_weather_low, report_weather_conditions, report_rental_equip, report_content) VALUES ($1, $2, $3, $4, $5, $6, $7)"
+  var params = [name, date, high, low, conditions, equipment, reportContent]
+  pool.query(sql, params, function (data) {
+    console.log("data inserted into database")
+  })
+
+
+}
 
 ///#### Display Report ####/////
 function getReport(req, res) {
