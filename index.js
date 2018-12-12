@@ -46,11 +46,16 @@ function sendReport(req, res) {
   pool.query(sql, params, function (error, data) {
     console.log(error)
     console.log("data inserted into database" + data.rows[0].report_id)
+    console.log(workerCategory + workerNumber + workerContent)
+    var sql = "INSERT INTO workers(workers_report_id, workers_category, workers_number, workers_content) VALUES ($1, $2, $3, $4)"
     res.render('pages/index')
   })
 
 
+
 }
+
+
 
 ///#### Display Report ####/////
 function getReport(req, res) {
