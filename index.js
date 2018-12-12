@@ -50,6 +50,16 @@ function sendReport(req, res) {
     console.log(workerCategory + workerNumber + workerContent)
     console.log(lengthWorkerNumber)
     var sql = "INSERT INTO workers(workers_report_id, workers_category, workers_number, workers_content) VALUES ($1, $2, $3, $4)"
+    for (var i = 0; i < lengthWorkerNumber; i++) {
+      var params = [data.rows[0].report_id, workerCategory[i], workerNumber[i], workerContent[i]]
+      if (workerCategory[i] != "") {
+        pool.query(sql, params, function (error, data) {
+          console.log("inserted data into workers table")
+        })
+      }
+
+
+    }
 
     res.render('pages/index')
   })
