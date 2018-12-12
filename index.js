@@ -65,6 +65,11 @@ function sendReport(req, res) {
     pool.query(sql, params, function (error, data) {
       console.log("inserted data into IMAGE table")
     })
+    var sql = "INSERT INTO issue(issue_report_id, issue_content, issue_status) VALUES ($1, $2, $3)"
+    var params = [data.rows[0].report_id, issue, false]
+    pool.query(sql, params, function (error, data) {
+      console.log("inserted data into ISSUE table")
+    })
     res.render('pages/index')
   })
 
