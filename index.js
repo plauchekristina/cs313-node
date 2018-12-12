@@ -40,7 +40,7 @@ function sendReport(req, res) {
   var reportContent = req.query.reportContent
   var imageFile = req.query.imageFile
   var issue = req.query.issue
-  var lengthWorkerNumber = workerNumber.length()
+  var lengthWorkerNumber = workerNumber.length
 
   var sql = "INSERT INTO report (report_name, report_date, report_weather_high, report_weather_low, report_weather_conditions, report_rental_equip, report_content) VALUES ($1, $2, $3, $4, $5, $6, $7) returning report_id"
   var params = [name, date, high, low, conditions, equipment, reportContent]
