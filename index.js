@@ -87,7 +87,7 @@ function getReport(req, res) {
   });
 }
 function getReportFromDb(report_id, callback) {
-  var sql = "SELECT report_id, report_date , report_weather_high , report_weather_low, report_weather_conditions , report_weather_delay, report_rental_equip , report_content FROM report WHERE report_id =$1::int"
+  var sql = "SELECT report_id, report_date , report_weather_high , report_weather_low, report_weather_conditions , report_rental_equip , report_content FROM report WHERE report_id =$1::int"
   var pass = [report_id];
   pool.query(sql, pass, function (error, result) {
     if (error) { } callback(null, result.rows);
