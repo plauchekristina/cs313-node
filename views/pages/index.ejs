@@ -9,7 +9,7 @@
         forecast.send();
         forecast.onload = function () {
           var myForecast = JSON.parse(forecast.responseText);
-          console.log(myForecast.forecast.high);
+          console.log(myForecast.forecast);
           document.getElementById('high').value = myForecast.forecast.high.fahrenheit;
           document.getElementById('low').value = myForecast.forecast.low.fahrenheit;
           document.getElementById('conditions').value = myForecast.forecast.conditions;
