@@ -11,7 +11,7 @@ express()
   .use(express.urlencoded({ extended: true })) //support url encoded bodies
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+  .get('/', getReportId)
   .get('/math', math)
   .get('/postal', (req, res) => res.sendFile(path.join(__dirname + '/public/submission.html')))
   .get('/getData', getData)
@@ -23,6 +23,17 @@ express()
 
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`))
+
+
+/////function to create dropdown of report ids //////
+
+
+function getReportId(req, res) {
+  var sql = "SELECT report_id, report_date FROM report"
+  pool.query(sql, function (error, data) {
+    res.render('pages/index', { data: data })
+  })
+}
 
 
 /////### Send Report to Database ### //////
