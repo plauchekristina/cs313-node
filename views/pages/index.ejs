@@ -50,7 +50,7 @@
         </h4>
         <form action="/sendReport" method="get">
           <label>Report Date</label>
-          <input type="date" name="date">
+          <input type="date" name="date" required>
           <label>Name of Submitter</label>
           <input type="text" name="name">
 
@@ -72,7 +72,7 @@
                   <div>
                     <label>Category</label>
                   </div>
-                  <select name="wcategory">
+                  <select name="wcategory" required>
                     <option value="">--Please choose an option--</option>
                     <option value="Plumber">Plumber
                     </option>
@@ -90,13 +90,13 @@
                   <div>
                     <label># of Workers on site</label>
                   </div>
-                  <input type="number" min=0 name="wnumber">
+                  <input type="number" min=0 name="wnumber" required>
                 </td>
                 <td>
                   <div>
                     <label>Work Done</label>
                   </div>
-                  <input type="textarea" name="wcontent">
+                  <input type="textarea" name="wcontent" required>
                 </td>
               </tr>
               <tr>
@@ -199,7 +199,7 @@
           <h3>Report</h3>
           <div>
             <label>What Happened Today?</label>
-            <textarea rows="4" cols="50" name="reportContent"></textarea>
+            <textarea rows="4" cols="50" name="reportContent" required></textarea>
           </div>
           <div>
             <label>Image Url</label>
