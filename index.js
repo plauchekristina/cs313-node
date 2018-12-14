@@ -31,7 +31,7 @@ express()
 function getReportId(req, res) {
   var sql = "SELECT report_id, report_date FROM report"
   pool.query(sql, function (error, data) {
-    res.render('pages/index', { data: data })
+    res.render('pages/index', { data: data.rows })
   })
 }
 
