@@ -28,197 +28,197 @@
 
     <div class=" container ">
 
-      < !--Report form-->
+      <!--Report form-->
 
-        <div>
-          <h1>Daily Report</h1>
-          <h4>
+      <div>
+        <h1>Daily Report</h1>
+        <h4>
 
-            <h4> Please select a report to view</h4>
-            <form action="/submitReport" method="GET ">
-              <select name="report_id">
-                <% for(var i=0; i < data.length; i++) { %>
-                  <option value="<%=data[i].report_id%>">
-                    <%= data[i].report_date%>
-                  </option>
-                  <% } %>
-                    <input type="submit" value="View Report">
+          <h4> Please select a report to view</h4>
+          <form action="/submitReport" method="GET ">
+            <select name="report_id">
+              <% for(var i=0; i < data.length; i++) { %>
+                <option value="<%=data[i].report_id%>">
+                  <%= data[i].report_date%>
+                </option>
+                <% } %>
+                  <input type="submit" value="View Report">
 
-              </select>
+            </select>
 
-            </form>
-          </h4>
-          <form action="/sendReport" method="get">
-            <label>Report Date</label>
-            <input type="date" name="date">
-            <label>Name of Submitter</label>
-            <input type="text" name="name">
-
-            <h3>Weather</h3>
-            <label>High</label>
-            <input type="number" name="high" id="high" required>
-            <label>Low</label>
-            <input type="number" name="low" id="low" required>
-            <label>Conditions</label>
-            <input type="textarea" name="conditions" id="conditions" required>
-            <label>Rental Equipment On Site</label>
-            <input type="textarea" name="equipment" required>
-            <div class="workers">
-              <h3>Workers</h3>
-              <table>
-                <tr>
-                  <td>
-
-                    <div>
-                      <label>Category</label>
-                    </div>
-                    <select name="wcategory">
-                      <option value="">--Please choose an option--</option>
-                      <option value="Plumber">Plumber
-                      </option>
-                      <option value="Electrician">Electrician
-                      </option>
-                      <option value="Framing">Framing
-                      </option>
-                      <option value="HVAC">HVAC
-                      </option>
-                      <option value="Grading">Grading
-                      </option>
-                    </select>
-                  </td>
-                  <td>
-                    <div>
-                      <label># of Workers on site</label>
-                    </div>
-                    <input type="number" min=0 name="wnumber">
-                  </td>
-                  <td>
-                    <div>
-                      <label>Work Done</label>
-                    </div>
-                    <input type="textarea" name="wcontent">
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <select name="wcategory">
-                      <option value="">--Please choose an option--</option>
-                      <option value="Plumber">Plumber
-                      </option>
-                      <option value="Electrician">Electrician
-                      </option>
-                      <option value="Framing">Framing
-                      </option>
-                      <option value="HVAC">HVAC
-                      </option>
-                      <option value="Grading">Grading
-                      </option>
-                    </select>
-                  </td>
-                  <td>
-                    <input type="number" min=0 name="wnumber">
-                  </td>
-                  <td>
-                    <input type="textarea" name="wcontent">
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <select name="wcategory">
-                      <option value="">--Please choose an option--</option>
-                      <option value="Plumber">Plumber
-                      </option>
-                      <option value="Electrician">Electrician
-                      </option>
-                      <option value="Framing">Framing
-                      </option>
-                      <option value="HVAC">HVAC
-                      </option>
-                      <option value="Grading">Grading
-                      </option>
-                    </select>
-                  </td>
-                  <td>
-                    <input type="number" min=0 name="wnumber">
-                  </td>
-                  <td>
-                    <input type="textarea" name="wcontent">
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <select name="wcategory">
-                      <option value="">--Please choose an option--</option>
-                      <option value="Plumber">Plumber
-                      </option>
-                      <option value="Electrician">Electrician
-                      </option>
-                      <option value="Framing">Framing
-                      </option>
-                      <option value="HVAC">HVAC
-                      </option>
-                      <option value="Grading">Grading
-                      </option>
-                    </select>
-                  </td>
-                  <td>
-                    <input type="number" min=0 name="wnumber">
-                  </td>
-                  <td>
-                    <input type="textarea" name="wcontent">
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <select name="wcategory">
-                      <option value="">--Please choose an option--</option>
-                      <option value="Plumber">Plumber
-                      </option>
-                      <option value="Electrician">Electrician
-                      </option>
-                      <option value="Framing">Framing
-                      </option>
-                      <option value="HVAC">HVAC
-                      </option>
-                      <option value="Grading">Grading
-                      </option>
-                    </select>
-                  </td>
-                  <td>
-                    <input type="number" min=0 name="wnumber">
-                  </td>
-                  <td>
-                    <input type="textarea" name="wcontent">
-                  </td>
-                </tr>
-              </table>
-
-
-            </div>
-
-            <h3>Report</h3>
-            <div>
-              <label>What Happened Today?</label>
-              <textarea rows="4" cols="50" name="reportContent"></textarea>
-            </div>
-            <div>
-              <label>Image Url</label>
-              <input type="text" name="imageFile">
-            </div>
-
-            <h3>Unresolved Issues</h3>
-            <!--Unresolved issues will go here -->
-            <h4>New Issue</h4>
-            <div>
-              <input type="text" name="issue[]">
-            </div>
-            <!--  <button onclick=""> Add Another Issue</button> -->
-
-
-            <input type="submit" class="btn btn-primary" value="Submit">
           </form>
+        </h4>
+        <form action="/sendReport" method="get">
+          <label>Report Date</label>
+          <input type="date" name="date">
+          <label>Name of Submitter</label>
+          <input type="text" name="name">
 
-        </div>
+          <h3>Weather</h3>
+          <label>High</label>
+          <input type="number" name="high" id="high" required>
+          <label>Low</label>
+          <input type="number" name="low" id="low" required>
+          <label>Conditions</label>
+          <input type="textarea" name="conditions" id="conditions" required>
+          <label>Rental Equipment On Site</label>
+          <input type="textarea" name="equipment" required>
+          <div class="workers">
+            <h3>Workers</h3>
+            <table>
+              <tr>
+                <td>
+
+                  <div>
+                    <label>Category</label>
+                  </div>
+                  <select name="wcategory">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Plumber">Plumber
+                    </option>
+                    <option value="Electrician">Electrician
+                    </option>
+                    <option value="Framing">Framing
+                    </option>
+                    <option value="HVAC">HVAC
+                    </option>
+                    <option value="Grading">Grading
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <div>
+                    <label># of Workers on site</label>
+                  </div>
+                  <input type="number" min=0 name="wnumber">
+                </td>
+                <td>
+                  <div>
+                    <label>Work Done</label>
+                  </div>
+                  <input type="textarea" name="wcontent">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <select name="wcategory">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Plumber">Plumber
+                    </option>
+                    <option value="Electrician">Electrician
+                    </option>
+                    <option value="Framing">Framing
+                    </option>
+                    <option value="HVAC">HVAC
+                    </option>
+                    <option value="Grading">Grading
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <input type="number" min=0 name="wnumber">
+                </td>
+                <td>
+                  <input type="textarea" name="wcontent">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <select name="wcategory">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Plumber">Plumber
+                    </option>
+                    <option value="Electrician">Electrician
+                    </option>
+                    <option value="Framing">Framing
+                    </option>
+                    <option value="HVAC">HVAC
+                    </option>
+                    <option value="Grading">Grading
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <input type="number" min=0 name="wnumber">
+                </td>
+                <td>
+                  <input type="textarea" name="wcontent">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <select name="wcategory">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Plumber">Plumber
+                    </option>
+                    <option value="Electrician">Electrician
+                    </option>
+                    <option value="Framing">Framing
+                    </option>
+                    <option value="HVAC">HVAC
+                    </option>
+                    <option value="Grading">Grading
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <input type="number" min=0 name="wnumber">
+                </td>
+                <td>
+                  <input type="textarea" name="wcontent">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <select name="wcategory">
+                    <option value="">--Please choose an option--</option>
+                    <option value="Plumber">Plumber
+                    </option>
+                    <option value="Electrician">Electrician
+                    </option>
+                    <option value="Framing">Framing
+                    </option>
+                    <option value="HVAC">HVAC
+                    </option>
+                    <option value="Grading">Grading
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <input type="number" min=0 name="wnumber">
+                </td>
+                <td>
+                  <input type="textarea" name="wcontent">
+                </td>
+              </tr>
+            </table>
+
+
+          </div>
+
+          <h3>Report</h3>
+          <div>
+            <label>What Happened Today?</label>
+            <textarea rows="4" cols="50" name="reportContent"></textarea>
+          </div>
+          <div>
+            <label>Image Url</label>
+            <input type="text" name="imageFile">
+          </div>
+
+          <h3>Unresolved Issues</h3>
+          <!--Unresolved issues will go here -->
+          <h4>New Issue</h4>
+          <div>
+            <input type="text" name="issue[]">
+          </div>
+          <!--  <button onclick=""> Add Another Issue</button> -->
+
+
+          <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+
+      </div>
 
     </div>
 
