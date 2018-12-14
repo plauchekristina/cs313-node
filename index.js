@@ -94,13 +94,7 @@ function getReportFromDb(report_id, callback) {
   });
 };
 
-///is this anything????? 
-/* function getReportData(req, res) {
-  var report_id = req.query.report_id;
-  var sql = "SELECT report_id, report_date , report_weather_high , report_weather_low, report_weather_conditions , report_weather_delay, report_rental_equip , report_content FROM report WHERE report_id =" + report_id
-  res.render('pages/report', report_id);
-} */
-////?????^^^^^
+
 
 ////##### Display User Data ####/////
 
@@ -166,23 +160,3 @@ function doMath(res, leftparam, rightparam) {
   }
   res.render('pages/result', equation);
 }
-////### put data in the database #### 
-
-/* function putData(req, res) {
-  var client_id = req.query.client_id;
-  putDataInDb(client_id, function (error, result) {
-    //res.json(result);
-    res.render('pages/user_data', { result: result });
-  });
-}
-function putDataInDb(client_id, callback) {
-  var sql = "INSERT client_fname, client_lname, client_email INTO client WHERE client_id = $1::int";
-  var pass = [client_id];
-  pool.query(sql, pass, function (error, result) {
-    if (error) {
-      //res.write("An error occured with the database")
-    }
-    //res.write("Found Database result: " + JSON.stringify(result.rows));
-    callback(null, result.rows);
-  });
-}; */
