@@ -81,7 +81,7 @@ function sendReport(req, res) {
     pool.query(sql, params, function (error, data) {
       console.log("inserted data into ISSUE table")
     })
-    res.render('pages/index')
+    getReportId(req, res)
   })
 
 
