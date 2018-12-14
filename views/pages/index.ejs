@@ -10,9 +10,9 @@
         forecast.onload = function () {
           var myForecast = JSON.parse(forecast.responseText);
           console.log(myForecast.forecast);
-          document.getElementById('high').value = myForecast.forecast.high.fahrenheit;
-          document.getElementById('low').value = myForecast.forecast.low.fahrenheit;
-          document.getElementById('conditions').value = myForecast.forecast.conditions;
+          document.getElementById('high').value = myForecast.forecast.simpleforcast.forecastday[0].high.fahrenheit;
+          document.getElementById('low').value = myForecast.forecast.simpleforcast.forecastday[0].low.fahrenheit;
+          document.getElementById('conditions').value = myForecast.forecast.simpleforcast.forecastday[0].conditions;
 
 
         }
