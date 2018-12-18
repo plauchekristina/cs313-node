@@ -14,6 +14,12 @@
                 <h1>Report ID#
                     <%= result[0].report_id %>
                 </h1>
+                <p>Report Date:
+                    <%= data[i].report_date%>
+                </p>
+                <p>
+                    <img src='<%= result[0].images_upload %>'>
+                </p>
                 <h2>Weather</h2>
                 <p>
                     <strong>High:</strong>
@@ -38,21 +44,24 @@
                 </p>
                 <h2>Workers Info</h2>
                 <% for (var i = 0; i< result.length; i++){%>
+                    <strong>Number & Category</strong>
                     <p>
-                        <%= result[i].workers_category %>
+                        <%= result[i].workers_number %> of
+                            <%= result[i].workers_category %> workers on site.
                     </p>
+
                     <p>
                         <%= result[i].workers_number %>
                     </p>
+                    <strong>
+                        <%= result[i].workers_category %> Work Done</strong>
                     <p>
                         <%= result[i].workers_content %>
                     </p>
 
                     <% }%>
 
-                        <p>
-                            <img src='<%= result[0].images_upload %>'>
-                        </p>
+
             </div>
         </body>
 
