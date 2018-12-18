@@ -54,6 +54,6 @@ h2 {
   padding: 3%;
 }
 
-input:required::before {
-  content: "*";
+input:required {
+  border: 1px rgba(240, 76, 76, .8) solid;
 }
