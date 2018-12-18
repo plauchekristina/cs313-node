@@ -54,6 +54,10 @@ h2 {
   padding: 3%;
 }
 
-input:required:empty, textarea:required:empty {
-  background-color: rgba(240, 76, 76, .8);
+input:required:invalid, textarea:required:invalid {
+  background-color: rgba(240, 76, 76, .3);
+}
+
+input:required:valid, textarea:required:valid {
+  background-color: rgba(76, 240, 117, 0.3);
 }
