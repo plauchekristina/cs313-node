@@ -40,16 +40,15 @@
                 <h2>Workers Info</h2>
                 <% for (var i = 0; i< result.length; i++){%>
                     <p>
-                        <%= result[i].workers_number %> workers for
-                            <%= result[i].workers_category %> on site.
+                        <%= result[i].workers_number %> workers for the
+                            <%= result[i].workers_category %> contractors on site.
                     </p>
-                    <p>
-                        <%= result[i].workers_number %>
-                    </p>
+                    <strong>
+                        <%= result[i].workers_category %> Work Completed</strong>
                     <p>
                         <%= result[i].workers_content %>
                     </p>
-
+                    <hr/>
                     <% }%>
 
                         <p>
