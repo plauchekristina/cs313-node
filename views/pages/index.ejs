@@ -55,14 +55,14 @@
           <input type="text" name="name">
 
           <h3>Weather</h3>
+          <p>The highs, lows</p>
           <label>High</label>
           <input type="number" name="high" id="high" required>
           <label>Low</label>
           <input type="number" name="low" id="low" required>
           <label>Conditions</label>
           <input type="textarea" name="conditions" id="conditions" required>
-          <label>Rental Equipment On Site</label>
-          <input type="textarea" name="equipment" required>
+
           <div class="workers">
             <h3>Workers</h3>
             <table>
@@ -197,20 +197,21 @@
           </div>
 
           <h3>Report</h3>
+          <label>Rental Equipment On Site</label>
+          <input type="textarea" name="equipment" required>
           <div>
             <label>What Happened Today?</label>
             <textarea rows="4" cols="50" name="reportContent" required></textarea>
           </div>
           <div>
             <label>Image Url</label>
-            <input type="text" name="imageFile">
+            <input type="text" width="150px" name="imageFile">
           </div>
 
-          <h3>Unresolved Issues</h3>
-          <!--Unresolved issues will go here -->
+
           <h4>New Issue</h4>
           <div>
-            <input type="text" name="issue[]">
+            <input type="text" rows="4" cols="50" name="issue[]">
           </div>
           <!--  <button onclick=""> Add Another Issue</button> -->
 
