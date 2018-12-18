@@ -38,7 +38,7 @@
         <h4> Please select a past report to view</h4>
         <form action="/submitReport" method="GET ">
           <select name="report_id">
-            <option>Please select</option>
+
             <% for(var i=0; i < data.length; i++) { %>
               <option value="<%=data[i].report_id%>">
                 <%= data[i].report_date%>
