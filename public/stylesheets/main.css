@@ -53,3 +53,7 @@ h2 {
   background-color: lightgray;
   padding: 3%;
 }
+
+input:required::before {
+  content: "*";
+}
