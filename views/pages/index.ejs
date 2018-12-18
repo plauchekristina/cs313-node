@@ -32,22 +32,22 @@
 
       <div>
         <h1>Daily Report</h1>
-        <h4>
+        <h2 class="bg-dark">View Past Reports</h2>>
 
-          <h4> Please select a report to view</h4>
-          <form action="/submitReport" method="GET ">
-            <select name="report_id">
-              <% for(var i=0; i < data.length; i++) { %>
-                <option value="<%=data[i].report_id%>">
-                  <%= data[i].report_date%>
-                </option>
-                <% } %>
-                  <input type="submit" value="View Report">
+        <h4> Please select a past report to view</h4>
+        <form action="/submitReport" method="GET ">
+          <select name="report_id">
+            <% for(var i=0; i < data.length; i++) { %>
+              <option value="<%=data[i].report_id%>">
+                <%= data[i].report_date%>
+              </option>
+              <% } %>
+                <input type="submit" class="btn-primary" value="View Report">
 
-            </select>
+          </select>
 
-          </form>
-        </h4>
+        </form>
+        <h2 class="bg-dark">Submit a New Report</h2>
         <form action="/sendReport" method="get">
           <label>Report Date</label>
           <input type="date" name="date" required>
