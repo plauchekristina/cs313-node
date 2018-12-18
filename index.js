@@ -29,7 +29,7 @@ express()
 
 
 function getReportId(req, res) {
-  var sql = "SELECT report_id, report_date FROM report"
+  var sql = "SELECT report_id, report_date FROM report ORDER BY report_date DESC"
   pool.query(sql, function (error, data) {
     res.render('pages/index', { data: data.rows })
   })
